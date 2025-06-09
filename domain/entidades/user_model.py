@@ -57,6 +57,23 @@ class user:
     def validarNumeroDocumento(self)->bool:
         return self.numeroDocumento.isdigit()
 
+    def toDictionary(self)->dict:
+            return {
+                "Num Documento": self.numeroDocumento,
+                "Tipo Documento": self.tipoDocumento,
+                "Primer Nombre": self.primerNombre,
+                "Segundo Nombre": self.segundoNombre,
+                "Primer Apellido": self.primerApellido,
+                "Segundo Apellido": self.segundoApellido,
+                "Fecha Nacimiento": self.fechaNacimiento.isoformat(),  # Formato 'YYYY-MM-DD'
+                "Departamento": self.departamento,
+                "Municipio": self.municipio,
+                "email": self.email,
+                "telefono": self.telefono,
+                "edad": self.edad
+            }
+
+
 
 class seller(user):
     pass

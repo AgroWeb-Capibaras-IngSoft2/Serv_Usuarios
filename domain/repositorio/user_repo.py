@@ -2,7 +2,7 @@
 #sin importar la base de datos que se use.
 from abc import ABC, abstractmethod
 from typing import Optional
-from entidades.user_model import user
+from domain.entidades.user_model import user
 
 class UserRepository(ABC):
     @abstractmethod

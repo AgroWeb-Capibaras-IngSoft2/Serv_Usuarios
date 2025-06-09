@@ -1,8 +1,10 @@
 from domain.entidades.user_model import user
+#from ...domain.entidades.user_model import user
 from domain.repositorio.user_repo import UserRepository
 from dataclasses import dataclass
 from typing import Dict,Optional
-import re
+from datetime import datetime
+
 
 @dataclass 
 class RegisterUserService:
@@ -20,7 +22,7 @@ class RegisterUserService:
                 segundoNombre=data["segundoNombre"],
                 primerApellido=data["primerApellido"],
                 segundoApellido=data["segundoApellido"],
-                fechaNacimiento=data["fechaNacimiento"],
+                fechaNacimiento=datetime.strptime(data["fechaNacimiento"], "%Y-%m-%d").date(),
                 departamento=data["departamento"],
                 municipio=data["municipio"],
                 email= data["email"],
