@@ -24,6 +24,7 @@ class db:
             self.dataBase,
             pd.DataFrame([user.toDictionary()])
         ], ignore_index=True)
+        print(user.toDictionary())
 
     def get_user_by_email(self, email: str):
         result = self.dataBase[self.dataBase["email"] == email]
