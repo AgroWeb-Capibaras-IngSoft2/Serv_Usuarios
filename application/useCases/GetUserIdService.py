@@ -7,4 +7,6 @@ from typing import Dict,Optional
 class GetUserIdService:
     repo:UserRepository
     def execute(self,id):
+        if(not(self.repo.getUserByDocument(id))):
+            raise ValueError("No existe ningún usuario con este documento")
         return self.repo.getUserByDocument(id)
