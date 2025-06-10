@@ -1,12 +1,16 @@
 from flask import Blueprint, request, jsonify
 from application.useCases.RegisterUserService import RegisterUserService
+from application.useCases.GetUserIdService import GetUserIdService
+from application.useCases.GetUserEmailService import GetUserEmailService
 from Infrastructure.adapterUserRepo import AdapterUserRepo
 
 bp = Blueprint('usuarios', __name__)
 adapterRepo = AdapterUserRepo()
 register_service = RegisterUserService(adapterRepo)
+getUserDoc= GetUserIdService(adapterRepo)
+getUserEmail= GetUserEmailService(adapterRepo)
 
-@bp.route("/register/user", methods=["POST"])
+@bp.route("/usuarios/register", methods=["POST"])
 def register():
     data = request.get_json()
     try:
@@ -15,3 +19,22 @@ def register():
                         "usuario ":new_user}), 201
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
+
+@bp.route("/usuarios/getById/<document>",methods=["GET"])
+def getUserById(document):
+    try:
+        user=getUserDoc.execute(document)
+        return jsonify({"message":"Usuario encontrado con exito",
+                        "user":user}),200
+    except ValueError as e:
+        return jsonify({"error":str(e)}),404
+@bp.route("/usuarios/getByEmail/<email>",methods=["GET"])
+def getUserByEmail(email):
+    try:
+        user=getUserEmail.execute(email)
+        return jsonify ({"message":"Usuario encontrado con exito",
+                         "user":user})
+    except ValueError as e:
+        return jsonify({"error":str(e)}),404
+    
+    
