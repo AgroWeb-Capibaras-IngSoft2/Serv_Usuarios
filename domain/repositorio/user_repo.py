@@ -17,8 +17,10 @@ class UserRepository(ABC):
     def deleteUserById(self,usuario_id:str)->bool:
         pass
 
+    @abstractmethod
     def updateUser(self,usuario:user)->bool:
         pass
 
+    @abstractmethod
     def registerUser(self,usuario:user)->Optional[user]:
         pass

@@ -18,3 +18,4 @@ class AdapterUserRepo(UserRepository):
     
     def deleteUserById(self, usuario_id):
         return super().deleteUserById(usuario_id)
+    
