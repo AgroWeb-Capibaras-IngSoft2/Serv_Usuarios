@@ -5,19 +5,21 @@ from email_validator import validate_email, EmailNotValidError
 #Se crea el modelo de un usuario
 @dataclass
 class user:
-    primerNombre:str
-    primerNombre:str
-    segundoNombre:str
-    primerApellido:str
-    segundoApellido:str
-    fechaNacimiento:date
-    departamento:str
-    municipio:str
+    firstName:str
+    middleName:str
+    surName1:str
+    surName2:str
+    bornDate:date
+    department:str
+    municipality:str
+    trail:str
     email:str
-    telefono:str
-    tipoDocumento:str
-    numeroDocumento:str
-    edad:str=0
+    typeDocument:str
+    numberDocument:str
+    phoneNumber:str
+    hashPassword:str
+    username:str
+    age:str=0
 
     #Validar despues de haber inicializado la informacion
     def __post_init__(self):
@@ -30,12 +32,12 @@ class user:
 
     def calcularEdad(self):
         currentDate=datetime.date.today()
-        diff=currentDate-self.fechaNacimiento
-        self.edad=diff.days//365
+        diff=currentDate-self.bornDate
+        self.age=diff.days//365
 
     #Validamos la edad: TRUE: >=18 años
     def validarEdad(self)->bool:
-        return self.edad>=18
+        return self.age>=18
     
     #Validamos el email
     def validarEmail(self)->bool:
@@ -48,29 +50,32 @@ class user:
             return valido
     #Validamos el tipo de documento
     def validarTipoDocumento(self)->bool:
-        if self.tipoDocumento in ["CC","cc","Cc","cC"]:
-            self.tipoDocumento=self.tipoDocumento.upper()
+        if self.typeDocument in ["CC","cc","Cc","cC"]:
+            self.typeDocument=self.typeDocument.upper()
             return True
         return False
         
     #Validamos el numero de documento
     def validarNumeroDocumento(self)->bool:
-        return self.numeroDocumento.isdigit()
+        return self.numberDocument.isdigit()
 
     def toDictionary(self)->dict:
             return {
-                "numeroDocumento": self.numeroDocumento,
-                "tipoDocumento": self.tipoDocumento,
-                "primerNombre": self.primerNombre,
-                "segundoNombre": self.segundoNombre,
-                "primerApellido": self.primerApellido,
-                "segundoApellido": self.segundoApellido,
-                "fechaNacimiento": self.fechaNacimiento.isoformat(),  # Formato 'YYYY-MM-DD'
-                "departamento": self.departamento,
-                "municipio": self.municipio,
+               "numberDocument": self.numberDocument,
+                "typeDocument": self.typeDocument,
+                "firstName": self.firstName,
+                "middleName": self.middleName,
+                "surName1": self.surName1,
+                "surName2": self.surName2,
+                "username":self.username,
+                "bornDate": self.bornDate.isoformat(),  # Formato 'YYYY-MM-DD'
+                "department": self.department,
+                "municipality": self.municipality,
+                "trail":self.trail,
                 "email": self.email,
-                "telefono": self.telefono,
-                "edad": self.edad
+                "phoneNumber": self.phoneNumber,
+                "age": self.age,
+                "hashPassword":self.hashPassword,
             }
     
 

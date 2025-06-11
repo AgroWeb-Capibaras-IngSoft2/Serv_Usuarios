@@ -10,17 +10,18 @@ register_service = RegisterUserService(adapterRepo)
 getUserDoc= GetUserIdService(adapterRepo)
 getUserEmail= GetUserEmailService(adapterRepo)
 
-@bp.route("/usuarios/register", methods=["POST"])
+@bp.route("/users/register", methods=["POST"])
 def register():
     data = request.get_json()
     try:
+        print(data)
         new_user = register_service.execute(data)
         return jsonify({"mensaje": "Usuario registrado exitosamente",
                         "usuario ":new_user}), 201
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
 
-@bp.route("/usuarios/getById/<document>",methods=["GET"])
+@bp.route("/users/getById/<document>",methods=["GET"])
 def getUserById(document):
     try:
         user=getUserDoc.execute(document)
@@ -28,7 +29,7 @@ def getUserById(document):
                         "user":user}),200
     except ValueError as e:
         return jsonify({"error":str(e)}),404
-@bp.route("/usuarios/getByEmail/<email>",methods=["GET"])
+@bp.route("/users/getByEmail/<email>",methods=["GET"])
 def getUserByEmail(email):
     try:
         user=getUserEmail.execute(email)

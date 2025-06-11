@@ -18,20 +18,24 @@ class RegisterUserService:
             raise ValueError("Documento ya registrado")
         try:
             new_user=user(
-                primerNombre=data["primerNombre"],
-                segundoNombre=data["segundoNombre"],
-                primerApellido=data["primerApellido"],
-                segundoApellido=data["segundoApellido"],
-                fechaNacimiento=datetime.strptime(data["fechaNacimiento"], "%Y-%m-%d").date(),
-                departamento=data["departamento"],
-                municipio=data["municipio"],
+                firstName=data["firstName"],
+                middleName=data["middleName"],
+                surName1=data["surName1"],
+                surName2=data["surName2"],
+                bornDate=datetime.strptime(data["bornDate"], "%Y-%m-%d").date(),
+                department=data["department"],
+                municipality=data["municipality"],
                 email= data["email"],
-                telefono=data["telefono"],
-                tipoDocumento=data["tipoDocumento"],
-                numeroDocumento=data["numeroDocumento"],
-                edad=0
+                phoneNumber=data["phoneNumber"],
+                typeDocument=data["typeDocument"],
+                numberDocument=data["numberDocument"],
+                trail=data["trail"],
+                username=data["username"],
+                age=0,
+                hashPassword=data["hashPassword"]
             )
             self.repo.registerUser(new_user)
+            print("error aca")
             return new_user
         except ValueError as e:
             raise ValueError(f"Error al crear usuario: {e}")
