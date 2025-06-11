@@ -2,16 +2,19 @@ import pandas as pd
 from domain.entidades.user_model import user
 class db:
     def __init__(self):
-        self.dataBase=pd.DataFrame(columns=["numeroDocumento",
-                                       "tipoDocumento",
-                                       "primerNombre",
-                                       "segundoNombre",
-                                       "fechaNacimiento",
-                                       "departamento",
-                                       "municipio",
+        self.dataBase=pd.DataFrame(columns=["numberDocument",
+                                       "typeDocument",
+                                       "firstName",
+                                       "middleName",
+                                       "username",
+                                       "bornDate",
+                                       "deparment",
+                                       "municipality",
+                                       "trail",
                                        "email",
-                                       "telefono",
-                                       "edad"],
+                                       "phoneNumber",
+                                       "age",
+                                       "hashPassword"]
                                        )
     
     def add_user(self, user: user):
