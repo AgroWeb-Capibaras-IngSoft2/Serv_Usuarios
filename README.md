@@ -35,9 +35,6 @@ Este servicio se especializa en operaciones CRUD, en torno a perfiles de usuario
 ```
 
 
-## Diagrama UML
-TODO
-
 ## Documentación Swagger
 
 Para la documentación ingresar al siguiente link:
