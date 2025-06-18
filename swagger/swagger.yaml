@@ -1,0 +1,213 @@
+openapi: 2.0.0
+info:
+  title: Agroweb Usuarios API
+  version: "1.0.3"
+  description: API para gestión de usuarios en Agroweb.
+host: localhost:5000
+basePath: "/"
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /users/register:
+    post:
+      summary: Register a new user
+      description: Register a new user.
+      parameters:
+        - in: body
+          name: body
+          description: User data to register
+          required: true
+          schema:
+            type: object
+            properties:
+              firstName:
+                type: string
+                example: "Juan"
+              middleName:
+                type: string
+                example: "Carlos"
+              surName1:
+                type: string
+                example: "Pérez"
+              surName2:
+                type: string
+                example: "Gómez"
+              bornDate:
+                type: string
+                format: date
+                example: "1990-01-01"
+              department:
+                type: string
+                example: "Antioquia"
+              municipality:
+                type: string
+                example: "Medellín"
+              phoneNumber:
+                type: string
+                example: "3001234567"
+              typeDocument:
+                type: string
+                example: "CC"
+              numberDocument:
+                type: string
+                example: "123456789"
+              trail:
+                type: string
+                example: "La Estrella"
+              username:
+                type: string
+                example: "juan1234"
+              email:
+                type: string
+                example: "juanperez@gmail.com"
+              hashPassword:
+                type: string
+                example: "example"
+            required:
+              - firstName
+              - middleName
+              - surName1
+              - bornDate
+              - department
+              - municipality
+              - phoneNumber
+              - typeDocument
+              - numberDocument
+              - username
+              - email
+              - hashPassword
+      responses:
+        '201':
+          description: Usuario registrado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensaje:
+                    type: string
+                  usuario:
+                    type: object
+        '400':
+          description: Error en los datos enviados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /users/getById/{document}:
+    get:
+      summary: Get user by document ID
+      description: Get user by document ID.
+      parameters:
+        - in: path
+          name: document
+          schema:
+            type: string
+            example: "123456789"
+          required: true
+          description: User document ID
+      responses:
+        '200':
+          description: Usuario encontrado con exito
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  user:
+                    type: object
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /users/getByEmail/{email}:
+    get:
+      summary: Get user by email
+      description: Get user by email.
+      parameters:
+        - in: path
+          name: email
+          schema:
+            type: string
+            example: "juanperez@gmail.com"
+          required: true
+          description: User email
+      responses:
+        '200':
+          description: Usuario encontrado con exito
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  user:
+                    type: object
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /users/autenticate/:
+    post:
+      summary: Authenticate user
+      description: Authenticate user by email and password.
+      parameters:
+        - in: body
+          name: body
+          description: User credentials for authentication
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+                example: "juanperez@gmail.com"
+              hashPassword:
+                type: string
+                example: "example"
+            required:
+              - email
+              - hashPassword
+      responses:
+        '200':
+          description: Ingreso Exitoso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '401':
+          description: Credenciales inválidas
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
