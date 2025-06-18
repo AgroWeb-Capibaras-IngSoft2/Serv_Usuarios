@@ -2,3 +2,4 @@ flask
 flasgger
 email-validator
 pandas
+flask-cors

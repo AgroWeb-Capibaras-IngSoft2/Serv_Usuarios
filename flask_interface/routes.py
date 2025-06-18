@@ -60,6 +60,8 @@ def authUser():
         return jsonify({"message":"Ingreso Exitoso"}),200
     except ValueError as e:
         return jsonify({"error":str(e)}),401
+    except Exception as e:
+        return jsonify({"error":str(e)}),404
 
     
     
