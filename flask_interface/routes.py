@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify
+from flasgger import Swagger
 from application.useCases.RegisterUserService import RegisterUserService
 from application.useCases.GetUserIdService import GetUserIdService
 from application.useCases.GetUserEmailService import GetUserEmailService
@@ -13,7 +14,10 @@ getUserEmail= GetUserEmailService(adapterRepo)
 autenticateUser= AuthenticationService(adapterRepo)
 
 @bp.route("/users/register", methods=["POST"])
+
 def register():
+      
+
     data = request.get_json()
     try:
         print(data)
@@ -25,14 +29,19 @@ def register():
 
 @bp.route("/users/getById/<document>",methods=["GET"])
 def getUserById(document):
+
     try:
         user=getUserDoc.execute(document)
         return jsonify({"message":"Usuario encontrado con exito",
                         "user":user}),200
     except ValueError as e:
         return jsonify({"error":str(e)}),404
+    
+
+
 @bp.route("/users/getByEmail/<email>",methods=["GET"])
 def getUserByEmail(email):
+
     try:
         user=getUserEmail.execute(email)
         return jsonify ({"message":"Usuario encontrado con exito",
@@ -42,6 +51,7 @@ def getUserByEmail(email):
 
 @bp.route("/users/autenticate/",methods=["POST"])
 def authUser():
+
     data = request.get_json() 
     email = data.get("email")
     password = data.get("hashPassword")
