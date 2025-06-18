@@ -10,7 +10,7 @@ class db:
                                        "surName2",
                                        "username",
                                        "bornDate",
-                                       "deparment",
+                                       "department",
                                        "municipality",
                                        "trail",
                                        "email",

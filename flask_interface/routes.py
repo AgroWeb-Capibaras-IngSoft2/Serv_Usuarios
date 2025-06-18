@@ -21,6 +21,7 @@ def register():
         return jsonify({"mensaje": "Usuario registrado exitosamente",
                         "usuario ":new_user}), 201
     except ValueError as e:
+        print(str(e))
         return jsonify({"error": str(e)}), 400
 
 @bp.route("/users/getById/<document>",methods=["GET"])
