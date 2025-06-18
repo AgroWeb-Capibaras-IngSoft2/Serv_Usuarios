@@ -50,7 +50,7 @@ class user:
             return valido
     #Validamos el tipo de documento
     def validarTipoDocumento(self)->bool:
-        if self.typeDocument in ["CC","cc","Cc","cC"]:
+        if self.typeDocument in ["CC","cc","Cc","cC","C.C"]:
             self.typeDocument=self.typeDocument.upper()
             return True
         return False

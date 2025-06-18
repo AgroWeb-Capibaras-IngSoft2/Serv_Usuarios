@@ -5,7 +5,9 @@ from typing import Dict,Optional
 class AuthenticationService:
     repo:UserRepository
     def execute(self,email:str,password:str):
-        user= self.repo.getUserByEmail(email)
+        user=self.repo.getUserByEmail(email)
+        if not user:
+            raise Exception("El usuario no existe")
         print(user)
         if(user["hashPassword"]==password):
             return True
