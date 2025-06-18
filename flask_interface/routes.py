@@ -42,7 +42,6 @@ def register():
               type: string
             bornDate:
               type: string
-              format: date
             department:
               type: string
             municipality:
