@@ -67,7 +67,7 @@ paths:
                 example: "juanperez@gmail.com"
               hashPassword:
                 type: string
-                example: "Q$@!GASHWjakl;jafi@"
+                example: "example"
             required:
               - firstName
               - middleName
@@ -188,7 +188,7 @@ paths:
                 example: "juanperez@gmail.com"
               hashPassword:
                 type: string
-                example: "Q$@!GASHWjakl;jafi@"
+                example: "example"
             required:
               - email
               - hashPassword
