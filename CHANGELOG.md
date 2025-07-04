@@ -1,9 +1,8 @@
 # CHANGELOG
 
-## [1.0.3] - 2025-06-13
+## [1.0.3] - 2025-07-04
 ### Modify
 Nueva base de datos en MongoDB.
-
 
 ## [1.0.2] - 2025-06-13
 ### Added
