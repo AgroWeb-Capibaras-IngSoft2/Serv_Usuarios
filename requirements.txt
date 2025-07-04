@@ -3,3 +3,5 @@ flasgger
 email-validator
 pandas
 flask-cors
+pymongo
+requests

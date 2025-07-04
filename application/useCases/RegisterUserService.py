@@ -10,12 +10,7 @@ from datetime import datetime
 class RegisterUserService:
     repo:UserRepository
     def execute(self,data:Dict)->user:
-        documentExist= self.repo.getUserByDocument("documento")
-        emailExist=self.repo.getUserByEmail("email")
-        if(emailExist):
-            raise ValueError("Email ya registrado")
-        if(documentExist):
-            raise ValueError("Documento ya registrado")
+        # Validaciones de datos se hacen en la conexion a la base de datos
         try:
             new_user=user(
                 firstName=data["firstName"],
@@ -35,7 +30,6 @@ class RegisterUserService:
                 hashPassword=data["hashPassword"]
             )
             self.repo.registerUser(new_user)
-            print("error aca")
             return new_user
         except ValueError as e:
             raise ValueError(f"Error al crear usuario: {e}")
