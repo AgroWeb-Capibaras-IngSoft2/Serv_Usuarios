@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.0.3] - 2025-07-04
+### Modify
+Nueva base de datos en MongoDB.
+
 ## [1.0.2] - 2025-06-13
 ### Added
 - Documentación Swagger para todos los endpoints de usuario.
@@ -15,6 +19,7 @@
 - Endpoint `/users/register` para registrar nuevos usuarios.
 - Endpoint `/users/getById/<document>` para consultar usuario por documento.
 - Endpoint `/users/getByEmail/<email>` para consultar usuario por email.
+
 
 
 

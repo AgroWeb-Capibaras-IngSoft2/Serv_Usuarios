@@ -1,8 +1,9 @@
 from domain.repositorio.user_repo import UserRepository
-from Infrastructure.DB import db
+from Infrastructure.mongoDB import DB #new mongo db
 class AdapterUserRepo(UserRepository):
     def __init__(self):
-        self.database:db=db()
+        self.database:DB=DB()
+
 
     def getUserByDocument(self, usuario_id):
         return self.database.get_user_by_document(usuario_id)
@@ -17,5 +18,5 @@ class AdapterUserRepo(UserRepository):
         return super().updateUser(usuario)
     
     def deleteUserById(self, usuario_id):
-        return super().deleteUserById(usuario_id)
+        return self.delete_user_by_id(usuario_id)
     
