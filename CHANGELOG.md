@@ -1,9 +1,14 @@
 # Changelog
+## [1.1.0] - 2025-07-21
+### Added
+- **Observabilidad Prometheus:** Se implementó la exposición de métricas Prometheus en el endpoint `/metrics` para monitoreo y análisis del servicio de usuarios.
+- **Script de demo de observabilidad:** Añadido `observability/generate_observability_demo.py` para simular tráfico y visualizar métricas en tiempo real.
+- **Tests de observabilidad:** Añadido `observability/test_observability.py` para validar el correcto funcionamiento de los endpoints `/health` y `/metrics`.
 
-Todos los cambios notables de este proyecto serán documentados en este archivo.
-
-El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Changed
+- **Documentación mejorada:**
+  - Swagger actualizado para documentar los endpoints `/metrics` y `/health`.
+  - README y ejemplos de uso ampliados para reflejar la integración de observabilidad y los nuevos endpoints.
 
 ## [1.0.4] - 2025-07-14
 ### Changed
