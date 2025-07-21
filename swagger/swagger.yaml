@@ -1,7 +1,7 @@
 openapi: 2.0.0
 info:
   title: Agroweb Usuarios API
-  version: "1.0.4"
+  version: "1.1.0"
   description: API para gestión de usuarios en Agroweb - Microservicio de usuarios con MongoDB
 host: localhost:5001
 basePath: "/"
