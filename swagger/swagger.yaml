@@ -1,9 +1,9 @@
 openapi: 2.0.0
 info:
   title: Agroweb Usuarios API
-  version: "1.0.3"
-  description: API para gestión de usuarios en Agroweb.
-host: localhost:5000
+  version: "1.1.0"
+  description: API para gestión de usuarios en Agroweb - Microservicio de usuarios con MongoDB
+host: localhost:5001
 basePath: "/"
 schemes:
   - http
@@ -13,6 +13,47 @@ produces:
   - application/json
 
 paths:
+  /health:
+    get:
+      summary: Health check
+      description: Verifica el estado y disponibilidad del servicio de usuarios. Responde con información de estado y versión.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Estado del servicio y metadatos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: healthy
+                  service:
+                    type: string
+                    example: usuarios
+                  version:
+                    type: string
+                    example: "1.2.0"
+                  metrics_endpoint:
+                    type: string
+                    example: null
+                    
+  /metrics:
+    get:
+      summary: Métricas Prometheus
+      description: Expone métricas Prometheus para monitoreo y observabilidad. Responde en formato texto plano.
+      produces:
+        - text/plain
+      responses:
+        '200':
+          description: Métricas en formato Prometheus
+          content:
+            text/plain:
+              schema:
+                type: string
+
   /users/register:
     post:
       summary: Register a new user
