@@ -16,7 +16,6 @@ autenticateUser= AuthenticationService(adapterRepo)
 @bp.route("/users/register", methods=["POST"])
 
 def register():
-      
 
     data = request.get_json()
     try:
@@ -52,17 +51,15 @@ def getUserByEmail(email):
 
 @bp.route("/users/autenticate/",methods=["POST"])
 def authUser():
-
     data = request.get_json() 
     email = data.get("email")
     password = data.get("hashPassword")
     try:
         validate=autenticateUser.execute(email,password)
-        return jsonify({"message":"Ingreso Exitoso"}),200
+        print(validate)
+        return jsonify(validate),200
     except ValueError as e:
         return jsonify({"error":str(e)}),401
     except Exception as e:
+        print(str(e))
         return jsonify({"error":str(e)}),404
-
-    
-    

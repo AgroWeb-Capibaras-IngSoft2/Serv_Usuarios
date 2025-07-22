@@ -4,7 +4,7 @@ from flasgger import Swagger
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:5173"])  # Allow CORS for the specified origin
+CORS(app, origins=["http://localhost:5174"])  # Allow CORS for the specified origin
 swagger = Swagger(app, template_file="swagger/swagger.yaml")
 app.register_blueprint(bp)
 

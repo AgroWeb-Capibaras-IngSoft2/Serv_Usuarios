@@ -10,5 +10,7 @@ class AuthenticationService:
             raise Exception("El usuario no existe")
         print(user)
         if(user["hashPassword"]==password):
-            return True
+            print("olaa")
+            return {"Success":True,"message":"Ingreso exitoso","user":{"userdocument":user["numberDocument"],
+                                           "doctype":user["typeDocument"]}}
         raise ValueError("La contraseña es incorrecta")

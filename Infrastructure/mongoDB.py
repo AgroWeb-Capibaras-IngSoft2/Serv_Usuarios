@@ -36,6 +36,7 @@ class DB:
     self.close_client()
     if result:
       result['_id'] = str(result['_id'])  # Convert ObjectId to string
+      print(result)
       return dict(result)
 
   def get_user_by_document(self, numero_documento: str):
