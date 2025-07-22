@@ -80,6 +80,7 @@ Swagger UI disponible en: [http://localhost:5001/apidocs](http://localhost:5001/
 - `POST /users/register` - Registrar nuevo usuario
 - `GET /users/getById/<document>` - Obtener usuario por documento
 - `GET /users/getByEmail/<email>` - Obtener usuario por email
+- `GET /users/` - Obtener todos los usuarios
 - `POST /users/autenticate/` - Autenticar usuario
 - `GET /health` - Estado del servicio (health check)
 - `GET /metrics` - Métricas Prometheus para observabilidad

@@ -6,6 +6,10 @@ from domain.entidades.user_model import user
 
 class UserRepository(ABC):
     @abstractmethod
+    def getAllUsers(self) -> Optional[list]:
+        pass
+
+    @abstractmethod
     def getUserByDocument(self, usuario_id: str) -> Optional[user]:
         pass
 

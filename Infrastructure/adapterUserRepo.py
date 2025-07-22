@@ -16,6 +16,18 @@ class AdapterUserRepo(UserRepository):
         """Inicializa la conexión a la base de datos MongoDB"""
         self.database: DB = DB()
 
+    def getAllUsers(self) -> list:
+        """
+        Obtiene todos los usuarios de la base de datos
+        
+        Args:
+            
+        Returns:
+            List: Lista de diccionario de usuarios
+          
+        """
+        return self.database.get_all_users()
+
     def getUserByDocument(self, usuario_id: str) -> dict:
         """
         Obtiene un usuario por su número de documento

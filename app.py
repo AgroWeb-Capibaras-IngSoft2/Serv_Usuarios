@@ -67,4 +67,4 @@ if __name__ == "__main__":
     print("=" * 50)
     print("✅ SERVIDOR LISTO - Esperando conexiones HTTP...")
     print("=" * 50)
-    app.run(debug=debug_mode, port=5001, host="127.0.0.1")
+    app.run(debug=True, port=5001, host="127.0.0.1")

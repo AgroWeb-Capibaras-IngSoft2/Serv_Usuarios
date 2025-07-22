@@ -51,6 +51,13 @@ def test_register_users():
         resp = requests.post(f"{BASE_URL}/users/register", json=user)
         print(f"POST /users/register {user['email']} ->", resp.status_code, resp.json())
 
+def test_get_all_users():
+    """Prueba de la consulta de todos los usuarios"""
+    print("Testing get all users...")
+    resp = requests.get(f"{BASE_URL}/users")
+    print(f"GET /users/", resp.status_code, resp.json())
+
+
 def test_get_user_by_id():
     """Prueba la consulta de usuarios por número de documento"""
     print("\nTesting get user by document...")
@@ -139,6 +146,7 @@ if __name__ == "__main__":
         test_register_users()
         test_get_user_by_id()
         test_get_user_by_email()
+        test_get_all_users()
         test_authenticate_users()
         test_user_not_found()
         

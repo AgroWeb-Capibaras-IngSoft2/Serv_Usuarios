@@ -144,6 +144,28 @@ paths:
                   error:
                     type: string
 
+  /users/:
+    get:
+      summary: Get all users
+      description: Get all users
+      responses:
+        '200':
+          description: Usuarios encontrados con exito.
+          content:
+          application/json:
+            schema:
+              type: object
+        '404':
+          description: Usuarios no encontrados en base de datos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+
   /users/getById/{document}:
     get:
       summary: Get user by document ID
