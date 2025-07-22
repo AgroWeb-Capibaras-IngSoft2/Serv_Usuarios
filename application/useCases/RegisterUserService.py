@@ -38,6 +38,7 @@ class RegisterUserService:
                 surName1=data["surName1"],
                 surName2=data["surName2"],
                 bornDate=datetime.strptime(data["bornDate"], "%Y-%m-%d").date(),
+                userType=data["userType"],
                 department=data["department"],
                 municipality=data["municipality"],
                 email=data["email"],

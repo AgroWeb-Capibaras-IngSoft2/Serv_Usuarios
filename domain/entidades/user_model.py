@@ -18,6 +18,7 @@ class user:
     middleName: str
     surName1: str
     surName2: str
+    userType: str
     bornDate: date
     department: str
     municipality: str
@@ -114,6 +115,7 @@ class user:
             "middleName": self.middleName,
             "surName1": self.surName1,
             "surName2": self.surName2,
+            "userType": self.userType,
             "username": self.username,
             "bornDate": self.bornDate.isoformat(),  # Formato 'YYYY-MM-DD'
             "department": self.department,
