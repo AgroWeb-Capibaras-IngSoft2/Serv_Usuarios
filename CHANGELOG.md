@@ -1,4 +1,9 @@
 # Changelog
+
+## [1.1.0] - 2025-07-22
+### Added
+- Endpoint `/users/` para consultar todos los usuarios.
+
 ## [1.1.0] - 2025-07-21
 ### Added
 - **Observabilidad Prometheus:** Se implementó la exposición de métricas Prometheus en el endpoint `/metrics` para monitoreo y análisis del servicio de usuarios.
