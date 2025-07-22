@@ -161,6 +161,6 @@ if __name__ == "__main__":
     finally:
         # Always cleanup test users, even if tests fail
         print("\n" + "=" * 50)
-        #cleanup_test_users()
+        cleanup_test_users()
         print("=" * 50)
         print("=== PRUEBAS Y LIMPIEZA FINALIZADAS ===")
