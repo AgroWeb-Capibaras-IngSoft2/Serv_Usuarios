@@ -15,6 +15,7 @@ users = [
         "middleName": "Carlos",
         "surName1": "Pérez",
         "surName2": "Gómez",
+        "userType": "seller",
         "bornDate": "1990-05-10",
         "department": "Cundinamarca",
         "municipality": "Bogotá",
@@ -31,6 +32,7 @@ users = [
         "middleName": "María",
         "surName1": "Rodríguez",
         "surName2": "López",
+        "userType": "buyer",
         "bornDate": "1985-08-20",
         "department": "Antioquia",
         "municipality": "Medellín",
@@ -159,6 +161,6 @@ if __name__ == "__main__":
     finally:
         # Always cleanup test users, even if tests fail
         print("\n" + "=" * 50)
-        cleanup_test_users()
+        #cleanup_test_users()
         print("=" * 50)
         print("=== PRUEBAS Y LIMPIEZA FINALIZADAS ===")
