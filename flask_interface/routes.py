@@ -98,12 +98,12 @@ def authUser():
     password = data.get("hashPassword")
     
     try:
-        validate=autenticateUser.execute(email,password)
+        validate = autenticateUser.execute(email, password)
         print(validate)
-        return jsonify(validate),200
+        return jsonify(validate), 200
     except ValueError as e:
         return jsonify({"error": str(e)}), 401
     except Exception as e:
         print(str(e))
-        return jsonify({"error":str(e)}),404
+        return jsonify({"error": str(e)}),404
 
