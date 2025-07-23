@@ -38,5 +38,5 @@ class AuthenticationService:
         if(user_data["hashPassword"]==password):
             print("olaa")
             return {"Success":True,"message":"Ingreso exitoso","user":{"userdocument":user_data["numberDocument"],
-                                           "doctype":user_data["typeDocument"]}}
+                                           "doctype":user_data["typeDocument"], "usertype":user_data["userType"]}}
         raise ValueError("La contraseña es incorrecta")
