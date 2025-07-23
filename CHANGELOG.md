@@ -1,4 +1,16 @@
 # Changelog
+## [1.1.2] - 2025-07-22
+### Changed
+- Validación y consistencia mejoradas para la integración con el microservicio de productos.
+- Se unificó el uso del campo `user_id` en las respuestas y documentación para evitar ambigüedades.
+- Ejemplos y documentación actualizados para reflejar el formato correcto de IDs de usuario.
+
+### Fixed
+- Corrección de validaciones edge case en la consulta y registro de usuarios por ID.
+- Mejor manejo de errores para IDs de usuario inválidos o no encontrados.
+
+### Documentation
+- Swagger y README actualizados para reflejar los cambios en la integración y el uso de `user_id`.
 
 ## [1.1.1] - 2025-07-22
 ### Added
