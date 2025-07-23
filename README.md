@@ -73,6 +73,9 @@ python test_users.py
 
 ## 📄 Documentación API
 
+> **Nota de integración:**
+> Para la integración con otros microservicios (como productos), el campo `user_id` corresponde al campo `document` del usuario en este servicio. Cuando otro servicio consulte o valide usuarios, debe usar el valor de `document` como `user_id`.
+
 Swagger UI disponible en: [http://localhost:5001/apidocs](http://localhost:5001/apidocs)
 
 ## 📡 Endpoints de la API
@@ -80,6 +83,7 @@ Swagger UI disponible en: [http://localhost:5001/apidocs](http://localhost:5001/
 - `POST /users/register` - Registrar nuevo usuario
 - `GET /users/getById/<document>` - Obtener usuario por documento
 - `GET /users/getByEmail/<email>` - Obtener usuario por email
+- `GET /users/` - Obtener todos los usuarios
 - `POST /users/autenticate/` - Autenticar usuario
 - `GET /health` - Estado del servicio (health check)
 - `GET /metrics` - Métricas Prometheus para observabilidad

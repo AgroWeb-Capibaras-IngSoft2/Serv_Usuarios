@@ -13,11 +13,7 @@ from prometheus_client import generate_latest
 import os
 
 app = Flask(__name__)
-
-# Configuración de CORS para permitir solicitudes desde el frontend (puerto 5173)
-CORS(app, origins=["http://localhost:5173"])
-
-# Configuración de Swagger para documentación automática de la API
+CORS(app, origins=["http://localhost:5174"])  # Allow CORS for the specified origin
 swagger = Swagger(app, template_file="swagger/swagger.yaml")
 
 # Registro del blueprint de rutas de usuarios
@@ -67,4 +63,4 @@ if __name__ == "__main__":
     print("=" * 50)
     print("✅ SERVIDOR LISTO - Esperando conexiones HTTP...")
     print("=" * 50)
-    app.run(debug=debug_mode, port=5001, host="127.0.0.1")
+    app.run(debug=True, port=5001, host="127.0.0.1")

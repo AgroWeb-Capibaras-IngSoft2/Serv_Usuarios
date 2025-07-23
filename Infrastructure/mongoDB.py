@@ -66,6 +66,28 @@ class DB:
             print(f"Error en add_user: {e}")
             raise
 
+    def get_all_users(self) -> list:
+        """
+        Devuelve todos los usuarios
+        
+        Args:
+            
+        Returns:
+            Lista de todos los usuarios
+        """
+        try:
+            users = self.collection.find()
+            result = []
+            for document in users:
+                if document:
+                    document['_id'] = str(document['_id'])
+                    result.append(dict(document))
+            return result
+        except Exception as e:
+            print(f"Error en get_all_users: {e}")
+            return None
+
+
     def get_user_by_email(self, email: str) -> dict:
         """
         Busca un usuario por su dirección de email
