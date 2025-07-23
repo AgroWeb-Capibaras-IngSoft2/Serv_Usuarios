@@ -1,8 +1,11 @@
 openapi: 2.0.0
 info:
   title: Agroweb Usuarios API
-  version: "1.1.0"
-  description: API para gestión de usuarios en Agroweb - Microservicio de usuarios con MongoDB
+  version: "1.1.2"
+  description: |
+    API para gestión de usuarios en Agroweb - Microservicio de usuarios con MongoDB
+    
+    > **Nota de integración:** Para integración con otros microservicios (como productos), el campo `user_id` corresponde al campo `document` del usuario en este servicio. Usa el valor de `document` como `user_id` al consultar desde otros servicios.
 host: localhost:5001
 basePath: "/"
 schemes:

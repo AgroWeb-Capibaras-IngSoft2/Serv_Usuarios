@@ -73,6 +73,9 @@ python test_users.py
 
 ## 📄 Documentación API
 
+> **Nota de integración:**
+> Para la integración con otros microservicios (como productos), el campo `user_id` corresponde al campo `document` del usuario en este servicio. Cuando otro servicio consulte o valide usuarios, debe usar el valor de `document` como `user_id`.
+
 Swagger UI disponible en: [http://localhost:5001/apidocs](http://localhost:5001/apidocs)
 
 ## 📡 Endpoints de la API
